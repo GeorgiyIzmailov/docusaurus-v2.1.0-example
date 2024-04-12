@@ -53,9 +53,45 @@ const config = {
     ],
   ],
 
+  themes: ["@inkeep/docusaurus/searchBar"],  
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+
+      inkeepConfig: {
+        // stylesheetUrls: ['/path/to/stylesheets'], // optional 
+        baseSettings: {
+          apiKey: "YOUR_API_KEY", // required
+          integrationId: "YOUR_INTEGRATION_ID", // required
+          organizationId: "YOUR_ORGANIZATION_ID", // required
+          primaryBrandColor: "#26D6FF", // required -- your brand color, the widget color scheme is derived from this
+          organizationDisplayName: "Inkeep",
+          // ...optional settings
+          theme: {
+            syntaxHighlighter: {
+              lightTheme: lightCodeTheme, // optional -- pass in the prism theme you're using
+              darkTheme: darkCodeTheme, // optional -- pass in the prism theme you're using
+            },
+          }
+        },
+        modalSettings: {
+          // optional settings
+        },
+        searchSettings: {
+          // optional settings
+        },
+        aiChatSettings: {
+          // optional settings
+          botAvatarSrcUrl: "/img/logo.svg", // optional -- use your own bot avatar
+          quickQuestions: [
+            "Example question 1?",
+            "Example question 2?",
+            "Example question 3?",
+          ],
+        },
+      },
+
       navbar: {
         title: 'My Site',
         logo: {
@@ -70,6 +106,10 @@ const config = {
             label: 'Tutorial',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'search',
+            position: 'right',
+          },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
